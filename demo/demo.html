@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>evenTutorial</title>
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Roboto:100&amp;subset=latin,latin-ext" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="http://necolas.github.io/normalize.css/3.0.1/normalize.css"
+          media="screen"/>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" type="text/css" href="demo.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="evenTutorial/evenTutorial.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script type="text/javascript" src="evenTutorial/evenTutorial.js"></script>
+</head>
+<body>
+<div id="main">
+    <div class="row" id="step1">
+        <a href="http://www.even.lv" target="_blank" id="logo">even<span>innovative solutions</span></a>
+
+        <p class="text-center">Website development studio in Latvia</p>
+
+        <p class="text-center"><a href="http://www.even.lv" target="_blank">www.even.lv</a></p>
+    </div>
+    <div class="row" id="step2">
+        <h1>evenTutorial</h1>
+
+        <p>evenTutorial is a jQuery plugin, that creates a tutorial for your website</p>
+
+        <button id="example">Run example</button>
+    </div>
+    <div class="row" id="step3">
+        <h1>Version</h1>
+
+        <p>1.0</p>
+    </div>
+    <div class="row" id="step4">
+        <h1>Files include</h1>
+        <h4>1. include jQuery</h4>
+        <pre><code class="xml">&lt;script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"&gt;&lt;/script&gt;</code></pre>
+        <h4>2. include evenTutorial/evenTutorial.css</h4>
+        <pre><code class="xml">&lt;link rel="stylesheet" type="text/css" href="evenTutorial/evenTutorial.css" /&gt;</code></pre>
+        <h4>3. include evenTutorial/evenTutorial.min.js</h4>
+        <pre><code class="xml">&lt;script type="text/javascript" src="evenTutorial/evenTutorial.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+    <div class="row" id="step5">
+        <h1>Basic Usage</h1>
+        <pre>
+            <code class="javascript">$.evenTutorial({
+    steps: [
+        {
+            selector: $("#step1"),
+            tip: "What is \"even\""
+        },
+        {
+            selector: $("#step2"),
+            tip: "About this plugin"
+        },
+        {
+            selector: $("#step3"),
+            tip: "Current version of this plugin"
+        },
+        {
+            selector: $("#step4"),
+            tip: "Don't forget to include necessary files"
+        },
+        {
+            selector: $("#step5"),
+            tip: "Basic usage of evenTutorial"
+        }
+    ]
+});</code>
+        </pre>
+        <p>This code will start tutorial on page load for selectors defined in <strong>selector</strong> property with
+            text defined in <strong>tip</strong> property.</p>
+    </div>
+    <div class="row">
+        <h1>Properties</h1>
+        <h4>1. steps</h4>
+
+        <p>Array of steps objects with selector and tip</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">[]</code></pre>
+        </div>
+        <hr/>
+        <h4>2. startOnLoad</h4>
+
+        <p>Start tutorial on page load</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">true</code></pre>
+        </div>
+        <hr/>
+        <h4>3. allowSkipping</h4>
+
+        <p>Allow skipping tutorial (places close button on every step)</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">false</code></pre>
+        </div>
+        <hr/>
+        <h4>4. prevButtonText</h4>
+
+        <p>"Previous" button text</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">&larr; Previous</code></pre>
+        </div>
+        <hr/>
+        <h4>5. nextButtonText</h4>
+
+        <p>"Next" button text</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">Next &rarr;</code></pre>
+        </div>
+        <hr/>
+        <h4>6. exitButtonText</h4>
+
+        <p>"Exit" button text</p>
+
+        <div>Default:
+            <pre class="inline-code"><code class="javascript">&times; Close tutorial</code></pre>
+        </div>
+    </div>
+    <div class="row">
+        <h1>Callbacks</h1>
+        <h4>1. onInit</h4>
+
+        <p>Called when $.evenTutorial initialized</p>
+        <hr/>
+        <h4>2. onStart</h4>
+
+        <p>Called when first step shown</p>
+        <hr/>
+        <h4>3. onShow</h4>
+
+        <p>Called when step shown</p>
+        <hr/>
+        <h4>4. onClose</h4>
+
+        <p>Called when step closed</p>
+        <hr/>
+        <h4>5. onExit</h4>
+
+        <p>Called when exit button clicked</p>
+    </div>
+    <div class="row">
+        <h1>Methods</h1>
+        <h4>1. $.evenTutorial.start()</h4>
+
+        <p>Starts tutorial</p>
+        <hr/>
+        <h4>2. $.evenTutorial.show( step )</h4>
+
+        <p>Shows step passed in argumnt <strong>step</strong>, if not passed - opens step exited</p>
+        <i><strong>step</strong> starts from 0</i>
+        <hr/>
+        <h4>3. $.evenTutorial.previous()</h4>
+
+        <p>Goes to previous step</p>
+        <hr/>
+        <h4>4. $.evenTutorial.next()</h4>
+
+        <p>Goes to next step</p>
+        <hr/>
+        <h4>4. $.evenTutorial.close()</h4>
+
+        <p>Closes tutorial</p>
+        <hr/>
+        <h4>4. $.evenTutorial.destroy()</h4>
+
+        <p>Destroys $.evenTutorial</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("pre code").each(function (i, e) {
+            hljs.highlightBlock(e)
+        });
+
+        $("#example").on("click", function () {
+            $.evenTutorial({
+                steps: [
+                    {
+                        selector: $("#step1"),
+                        tip: "What is \"even\""
+                    },
+                    {
+                        selector: $("#step2"),
+                        tip: "About this plugin"
+                    },
+                    {
+                        selector: $("#step3"),
+                        tip: "Current version of this plugin"
+                    },
+                    {
+                        selector: $("#step4"),
+                        tip: "Don't forget to include necessary files"
+                    },
+					{
+						selector: $("#step5"),
+						tip: "Basic usage of evenTutorial"
+					}
+                ],
+                onExit: function () {
+                    $.evenTutorial.destroy();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
